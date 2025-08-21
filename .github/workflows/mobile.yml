@@ -22,9 +22,9 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
       
-      - name: Build Mobile APK (Arm64)
+      - name: Build Mobile APK (Armeabi_v7a)
         run: |
-          ./gradlew :app:assembleMobileArm64_v8aRelease
+          ./gradlew :app:assembleMobileArmeabi_v7aRelease
           mkdir out
           find app/build/outputs/apk -name "*.apk" -exec mv {} out \;
       
@@ -42,5 +42,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: mobile-arm64-release-apk
+          name: mobile-armeabi_v7a-release-apk
           path: out/*signed.apk
