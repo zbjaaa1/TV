@@ -22,9 +22,9 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
       
-      - name: Build Leanback APK (Arm64)
+      - name: Build Leanback APK (Armeabi_v7a)
         run: |
-          ./gradlew :app:assembleLeanbackArm64_v8aRelease
+          ./gradlew :app:assembleLeanbackArmeabi_v7aRelease
           mkdir out
           find app/build/outputs/apk -name "*.apk" -exec mv {} out \;
       
@@ -42,5 +42,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: leanback-arm64-release-apk
+          name: leanback-Armeabi_v7a-release-apk
           path: out/*signed.apk
